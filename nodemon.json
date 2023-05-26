@@ -1,0 +1,6 @@
+{
+  "watch": [],
+  "verbose": true,
+  "ext": "js,mjs,json,yaml",
+  "ignore": ["public/"]
+}
