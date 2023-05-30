@@ -1,14 +1,14 @@
 extends layouts/main-layout
 
 block content
-    form
+    form(method="post" action = "/")
         .mb-3.row.align-items-center.justify-content-center
             label.col-sm-3.col-form-label(for='todo-name') New ToDo name
             .col-sm-9
-                input#todo-name.form-control(type='text')
+                input#todo-name.form-control(type='text' name="name")
         .mb-3.row
             label.col-sm-3.col-form-label(for='todo-body') ToDo body
             .col-sm-9
-                textarea#todo-body.form-control(type='text' autofocus)
+                textarea#todo-body.form-control(type='text' name="body" autofocus)
         .mb-3.row
                 button.btn.btn-primary.mb-3(type='submit') Add new ToDo

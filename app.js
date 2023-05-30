@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const connDB = require("./conf/db");
 const dotenv = require("dotenv");
+const bodyParser = require('body-parser');
 
 // Load env consts
 dotenv.config({path: './conf/config.env'});
@@ -25,6 +26,13 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// // for parsing application/json
+// app.use(bodyParser.json());
+//
+// // for parsing application/xwww-
+// app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

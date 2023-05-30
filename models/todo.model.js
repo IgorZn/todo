@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const ToDo = new mongoose.Schema({
-    Name: {
+    name: {
         type: String,
         trim: true
     },
-    Body: {
+    body: {
         type: String,
         trim: true
     },
