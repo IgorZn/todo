@@ -1,6 +1,9 @@
 extends layouts/main-layout
 
 block content
+    script.
+        var data = '!{data}'
+
     form(method="post" action = "/")
         .mb-3.row.align-items-center.justify-content-center
             label.col-sm-3.col-form-label(for='todo-name') New ToDo name
@@ -11,4 +14,15 @@ block content
             .col-sm-9
                 textarea#todo-body.form-control(type='text' name="body" autofocus)
         .mb-3.row
-                button.btn.btn-primary.mb-3(type='submit') Add new ToDo
+            button.btn.btn-primary.mb-3(type='submit') Add new ToDo
+
+    .row
+        ul
+            each val in data
+                .card.my-2
+                    .card-body
+                        h5.card-title= val.name
+                        p.card-text= val.body
+                        .mx-auto
+                            a.btn.btn-primary.done-todo(href="#" data-id=val.id) Done
+                            a.btn.btn-warning.mx-2.delete-todo(href="#" data-id=val.id) Delete

@@ -38,6 +38,7 @@ exports.addToDo = async (req, res, next) => {
                     .status(200)
                     .render('index', data)
             })
+            .catch(e => res.status(404).json({status: false, e}))
     } else {
         console.log('EMPTY -- addToDo>>', req.body)
         return res
