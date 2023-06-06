@@ -1,10 +1,6 @@
 extends layouts/main-layout
 
 block content
-    script.
-        var jsData = !{data}
-
-    p= jsData
     form(method="post")
         .mb-3.row.align-items-center.justify-content-center
             label.col-sm-3.col-form-label(for='todo-name') New ToDo name
@@ -18,6 +14,7 @@ block content
             button#submit-todo.btn.btn-primary.mb-3(type='submit') Add new ToDo
 
     .row
+        P= jsData
         ul
             each val in data
                 .card.my-2(data-id=val.id)

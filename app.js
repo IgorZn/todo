@@ -15,7 +15,7 @@ dotenv.config({path: './conf/config.env'});
 connDB()
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const todoEdit = require('./routes/edit');
 
 const app = express();
 
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /* Routers */
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/edit', todoEdit);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

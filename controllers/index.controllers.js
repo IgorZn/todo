@@ -18,6 +18,7 @@ exports.index = async (req, res, next) => {
 
             const context = {
                 title: 'Express',
+                dataJS: JSON.stringify(data[0]),
                 data
             }
 
@@ -54,7 +55,7 @@ exports.addToDo = async (req, res, next) => {
                     .catch(e => res.status(404).json({status: false, e}))
             })
     } else {
-        console.log('EMPTY -- addToDo>>', req.body)
+        // console.log('EMPTY -- addToDo>>', req.body)
         return res
             .status(200)
             .json({status: false})
