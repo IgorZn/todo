@@ -5,7 +5,7 @@ block content
         .mb-3.row.align-items-center.justify-content-center
             label.col-sm-3.col-form-label(for='todo-name') New ToDo name
             .col-sm-9
-                input#todo-name.form-control(type='text' name="name")
+                input#todo-name.form-control(type='text' name="name" required)
         .mb-3.row
             label.col-sm-3.col-form-label(for='todo-body') ToDo body
             .col-sm-9
@@ -18,10 +18,9 @@ block content
         ul
             each val in data
                 .card.my-2(data-id=val.id)
-                    .card-body
-                        h5.card-title= val.name
-                        p.card-text= val.body
-                        .mx-auto
-                            a.btn.btn-info.edit-todo.m-1(href="/" + val.id data-id=val.id) Edit
-                            a.btn.btn-primary.done-todo(href="#" data-id=val.id) Done
-                            a.btn.btn-warning.mx-1.delete-todo(data-id=val.id) Delete
+                    if val.done
+                        .card-body.bg-secondary-done
+                            +createCardContent(val)
+                    else
+                        .card-body
+                            +createCardContent(val)

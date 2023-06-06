@@ -78,3 +78,18 @@ exports.deleteToDo = async (req, res, next) => {
         .catch(e => res.status(404).json({status: false, e}))
 
 };
+
+
+// @desc        Done ToDos
+// @route       PUT /:id
+// @access      Public
+exports.doneToDo = async (req, res, next) => {
+    const id = req.params.id
+    const doneStatus = req.body.done
+    await ToDo.findByIdAndUpdate(id, {done: doneStatus})
+        .then(result => {
+            res
+                .status(200)
+                .json({success: true, result})
+        })
+}

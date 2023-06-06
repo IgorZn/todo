@@ -12,3 +12,7 @@ a {
   height: 150px;
   text-align: justify;
 }
+
+.bg-secondary-done {
+  background: rgba(124, 124, 124, 0.24);
+}

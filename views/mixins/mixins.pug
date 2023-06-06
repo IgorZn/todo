@@ -1,0 +1,10 @@
+mixin createCardContent(obj)
+    h5.card-title= obj.name
+    p.card-text= obj.body
+    .mx-auto
+        a.btn.btn-info.edit-todo.m-1(href="/" + obj.id data-id=obj.id) Edit
+        if obj.done
+            a.btn.btn-primary.done-open(href="#" data-id=obj.id) Open
+        else
+            a.btn.btn-primary.done-todo(href="#" data-id=obj.id) Done
+        a.btn.btn-warning.mx-1.delete-todo(data-id=obj.id) Delete

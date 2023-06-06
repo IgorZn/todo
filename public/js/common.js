@@ -1,3 +1,4 @@
+// delete todo
 $(() => {
     $('.delete-todo').on('click', (e) => {
         $target = $(e.target);
@@ -16,7 +17,7 @@ $(() => {
     })
 })
 
-
+// done todo
 $(() => {
     $('.done-todo').on('click', (e) => {
         $target = $(e.target);
@@ -24,8 +25,10 @@ $(() => {
         $.ajax({
             type: 'PUT',
             url: `/${id}`,
+            data: {
+                done: true
+            },
             success: (response) => {
-                alert('Done todo')
                 window.location.href = '/'
             },
             error: (error) => {
@@ -37,7 +40,30 @@ $(() => {
     })
 })
 
+// open todo
+$(() => {
+    $('.done-open').on('click', (e) => {
+        $target = $(e.target);
+        const id = $target.attr('data-id')
+        $.ajax({
+            type: 'PUT',
+            url: `/${id}`,
+            data: {
+                done: false
+            },
+            success: (response) => {
+                window.location.href = '/'
+            },
+            error: (error) => {
+                console.log(error)
+            }
+        })
 
+        console.log('Done ToDo', id)
+    })
+})
+
+// update todo
 $(() => {
     $('#update-todo').on('click', (e) => {
         $target = $(e.target);

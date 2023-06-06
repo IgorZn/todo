@@ -9,6 +9,10 @@ const ToDo = new mongoose.Schema({
         type: String,
         trim: true
     },
+    done: {
+        type: Boolean,
+        default: false
+    }
 
 }, {
     timestamps: true
